@@ -1,0 +1,315 @@
+/* Общие стили */
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.6;
+    max-width: 1000px;  /* Ограничивает ширину контента */
+    margin: 0 auto;     /* Отступы сверху снизу — 0, слева справа — автоматически */
+    padding: 20px;      /* Добавляет отступ внутри body (от краёв экрана) */
+    color: #333;
+}
+
+h3 {
+    color: red;
+    font-weight: bold;
+  }
+
+.highlight {
+    color: rgb(191, 0, 32);
+    font-size: 1.5em;
+}
+
+/* Изображения */
+.content-img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Flex-контейнер (яйца) */
+.object-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 10px 0;
+}
+
+.object-item {
+    background-color: rgba(139, 255, 170, 0.462);
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Grid-контейнер (медали) */
+.medals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.medal {
+    background-color: #f8f8f8;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Анимация планеты */
+.rotating-planet {
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Кнопки */
+.buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.btn-img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;      /* Уменьшаем отступ на маленьких экранах */
+      }
+    .medals-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .object-flex {
+        flex-direction: column;
+    }
+    
+    .object-item {
+        min-width: 100%;
+    }
+}
+
+
+/* Стили для подсказок (tooltip) */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dotted #666; /* Подчеркивание для элементов с подсказкой */
+  }
+  
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    width: 300px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Стрелка у тултипа */
+  .tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя любимая игра "Animal Well"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <address>
+        <del>Этот партал зделан сабствинаручно веб-дизайнером Викой Б. в праграме Блакнот.</del> 
+        <strike>Если вы хатите взять маи статьи к сибе на сайт то спрасите мое разришение.</strike>
+        <ins>Ответственная за разработку этой веб-страницы Виктория Бондаренко.</ins>
+    </address>
+
+    <h1><span class="highlight">М</span>аленький справочник об <span class="highlight">A</span>nimal <span class="highlight">W</span>ell</h1>
+    <h2>Исследуйте пугающий лабиринт и разгадайте его секреты. 
+        Собирайте предметы, чтобы разительно изменить мир вокруг вас.
+        Встречая разнообразных существ, попытайтесь выжить вопреки тому, что скрывается во тьме.</h2>
+    
+    <h3><b>Всё не то, чем кажется.</b></h3>
+
+    <img src="screen.png" alt="Игруля" class="content-img">
+
+    <section class="story">
+        <h2>Сюжет</h2>
+        <p>Главный герой, похожий на <b>фрикадельку</b>, вылезает из какого-то бутона и может идти куда угодно. 
+        На пути встречаются белки, коты, собаки, горностаи, но все они разбегаются в ужасе при виде игрока
+         <dfn>(а некоторые хотят его съесть)...</dfn> 
+         Это действительно колодец с животными, как утверждает название игры, 
+         но что конкретно это за место — непонятно.</p>
+    </section>
+
+    <section class="features">
+        <h2>Особенности игры:</h2>
+
+        <p><b>Загадочность всего.</b> Здесь всё загадочно, а потому всё хочется изучать ♡</p>
+        <img src="animal.jpg" alt="Одна из локаций" class="content-img">
+        
+        <p><b>Отсутствие правильного способа пройти игру.</b> 
+            Можно отправиться направо, можно — налево, можно воспользоваться лестницей или, наоборот, свалиться в пропасть. </p>
+
+        <p><b>Множество загадок и секретов.</b> 
+            Одни головоломки просты — нажми на кнопку и получишь результат; 
+            другие заставят пораскинуть мозгами, побуждая 
+            <bdo dir="rtl">мыслить за пределами доступного экрана</bdo>.</p>
+    </section>
+
+    <div class="link-container">
+        <a href="https://animal-well.pages.dev/map?x=246.6&y=276.8&z=2" target="_blank">Самая лучшая ссылка на свете!!!</a>
+    </div>
+
+    <section class="medals-section">
+        <h2>Медали ♥❤</h2>
+        <div class="medals-grid">
+            <div class="medal">Медаль K 
+                <span class="tooltip">(Кенгуру)
+                  <span class="tooltip-text">Враждебное существо, которое атакует игрока, прыгая на него и нанося урон при контакте</span>
+                </span>
+            </div>
+            <div class="medal">Медаль H 
+                <span class="tooltip">(Хамелеон)
+                    <span class="tooltip-text">Агрессивное существо, которое частично видно и выступает в роли босса</span>
+                </span>
+            </div>
+            <div class="medal">Медаль S 
+                <span class="tooltip">(Змея)
+                    <span class="tooltip-text">умеренно опасное животное. Оно преследует игрока и пытается его раздавить своей головой и телом. При этом змея избегает есть фрукты и активно обходит их. </span>
+                </span>
+            </div>
+            <div class="medal">Медаль E 
+                <span class="tooltip">(Угорь)
+                    <span class="tooltip-text">Угорь — босс в игре Animal Well. Он находится в тёмной комнате под водой и спит, пока его не разбудят.</span>
+                </span>
+            </div>
+        </div>
+        <img src="anim.jpg" alt="Статуи, куда необходимо принести медаль, полученную после победы над боссом" class="content-img">
+    </section>
+
+    <section class="object-section">
+        <h2>Предметы</h2>
+        <h4>Вместо привычных ключей, рычагов и двойных прыжков здесь неожиданные инструменты.</h4>
+        <h4>Основные:</h4>
+        <div class="object-flex">
+            <div class="object-item"><abbr title="Их можно использовать для отпугивания призраков
+ и некоторых животных, а также для освещения темных мест.">Петарды-Шутихи</abbr></div>
+            <div class="object-item"><abbr title="Фрисби станет отличным отвлекающим предметом для голодных собак, 
+сильным оружием против острых камней за счет отскока от стен 
+и даже способом перемещения на далекие расстояния, 
+если мы умудримся запрыгнуть на него во время полета.">Фрисби</abbr></div>
+            <div class="object-item"><abbr title="Мыльные пузыри позволят нам создавать временные платформы для прыжков, 
+станут надежным лифтом и позволят путешествовать по водопроводным трубам.">Пузырьковая палочка</abbr></div>
+            <div class="object-item"><abbr title="Йо-йо тоже можно использовать в качестве оружия, 
+но его основная задача проникать в недоступные места за счет крутящего момента 
+и привлекать своим свечением любопытных созданий. ">Йо-йо</abbr></div>
+        </div>
+        <h4>И ещё несколько важных предметов, которые нужно ещё отыскать:</h4>
+        <ul class="object-list">
+            <li>Флейта</li>
+            <li>Пружинка</li>
+            <li>Фонарь</li>
+            <li>Юла</li>
+        </ul>
+        <cite>https://store.steampowered.com/app/813230/ANIMAL_WELL/</cite>
+        <img src="preview_egg.png" alt="Яйцо" class="content-img">
+    </section>
+    
+    <div class="buttons">
+        <p>Ждём Hollow Knight: Silksong?</p>
+        <button>YEEES</button>
+        <button><img src="hornet.jpg" alt="Hornet" class="btn-img"> No</button>
+    </div>
+
+    <blockquote>
+        <p>Однажды я, Чжуан Чжоу, увидел себя во сне бабочкой – счастливой бабочкой, 
+            которая порхала среди цветков в свое удовольствие и вовсе не знала, что она – Чжуан Чжоу. 
+            Внезапно я проснулся и увидел, что я – Чжуан Чжоу. И я не знал, то ли я Чжуан Чжоу, которому приснилось, что он – бабочка, 
+            то ли бабочка, которой приснилось, что она – Чжуан Чжоу. А ведь между Чжуан Чжоу и бабочкой, несомненно, есть различие. 
+            Вот что такое превращение вещей!</p>
+            <p>(Из книги "Чжуан-цзы", гл. 2 — "О том как вещи друг друга уравновешивают")</p>
+    </blockquote>
+    
+    <img src="planeta.png" alt="Планета" class="rotating-planet">
+
+    <section class="poem">
+        <em>Посвящается открытию ресторана.<br>Андрей Курнаев</em>
+        <center>
+            <p> Планета кружится из ночи в день,<br>
+                Без утомления по космосу кочуя. <br>
+                А я – усталый одинокий пелимень<br>
+                И ждет меня – глубокая кастрюля.<br></p>
+        </center>
+    </section>
+
+    <fieldset>
+        <legend>Чем Вам понравилась эта работа?</legend>
+        <label><input type="checkbox"> Выполнены все требования</label>
+        <label><input type="checkbox"> Сдана вовремя</label>
+        <label><input type="checkbox"> Визуально приемлема</label>
+    </fieldset>
+</body>
+</html>
+
+
+
+
